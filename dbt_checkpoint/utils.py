@@ -580,6 +580,8 @@ def get_missing_file_paths(
     extensions: Sequence[str] = [".sql", ".yml", ".yaml"],
     exclude_pattern: str = "",
 ) -> Set[str]:
+    print('debug point 2.0 exlude_pattern = ' + exclude_pattern)
+    print(f'debug point 1.0 paths before = {paths}')
     nodes = manifest.get("nodes", {})
     paths_with_missing = set(paths)
     if nodes:
@@ -591,6 +593,7 @@ def get_missing_file_paths(
                 add_related_sqls(path, nodes, paths_with_missing, include_ephemeral)
             else:
                 continue
+    print(f'debug point 1.0 path_without_missing = {paths_with_missing}')
     if exclude_pattern:
         exclude_re = re.compile(exclude_pattern)
         paths_with_missing = [  # type: ignore
