@@ -34,9 +34,12 @@ def check_model_columns(
     catalog: Dict[str, Any],
     exclude_pattern: str,
 ) -> int:
+    print('debug point 1.0 exlude_pattern = ' + exclude_pattern)
+    print(f'debug point 1.0 paths before = {exclude_pattern}')
     paths = get_missing_file_paths(
         paths, manifest, extensions=[".sql"], exclude_pattern=exclude_pattern
     )
+    print(f'debug point 1.0 paths after = {exclude_pattern}')
 
     status_code = 0
     sqls = get_model_sqls(paths, manifest)
