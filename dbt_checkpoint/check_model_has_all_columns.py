@@ -35,6 +35,7 @@ def check_model_columns(
     exclude_pattern: str,
 ) -> int:
     print('you called a check_model_columns thanks for use')
+    
     print(f'debug point 1.0 exlude_pattern = {exclude_pattern}')
     print(f'debug point 1.0 paths before = {paths}')
     paths = get_missing_file_paths(
